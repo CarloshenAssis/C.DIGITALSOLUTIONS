@@ -209,8 +209,7 @@ export const projects: Project[] = [
     ],
     technologies: ["HTML", "CSS", "JavaScript", "Vercel"],
     gallery: [],
-    // Sem URL pública informada. Enquanto ficar assim, nenhum CTA externo é
-    // renderizado para este projeto — em nenhum lugar do site.
+    liveUrl: "https://monteiro-graciano.vercel.app/",
     featured: false,
   },
 ];

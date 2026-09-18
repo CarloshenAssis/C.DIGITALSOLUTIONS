@@ -46,8 +46,8 @@ export default function ProjectEntry({
       >
         <Link
           href={`/projetos/${project.slug}`}
-          data-cursor="Ver projeto"
-          aria-label={`Ver o projeto ${project.title}`}
+          data-cursor="Ver o case"
+          aria-label={`Ver o case de ${project.title}`}
           className="block"
         >
           <ProjectFrame
