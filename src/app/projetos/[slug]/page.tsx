@@ -8,9 +8,10 @@ import Reveal from "@/components/motion/Reveal";
 import Section from "@/components/ui/Section";
 import Eyebrow from "@/components/ui/Eyebrow";
 import ProjectFrame from "@/components/work/ProjectFrame";
+import ClientTag from "@/components/work/ClientTag";
 import JsonLd from "@/components/layout/JsonLd";
 import FinalCta from "@/components/sections/FinalCta";
-import { projects, getProject } from "@/data/projects";
+import { projects, getProject, liveCtaLabel, liveCtaAria } from "@/data/projects";
 import { creativeWorkJsonLd } from "@/lib/jsonLd";
 
 type Params = { params: Promise<{ slug: string }> };
@@ -72,6 +73,11 @@ export default async function ProjetoPage({ params }: Params) {
             <Reveal kind="up" className="lg:col-span-7">
               <Eyebrow terminal>{project.kicker}</Eyebrow>
               <h1 className="t-title mt-[var(--s-6)]">{project.title}</h1>
+              {project.classification ? (
+                <div className="mt-[var(--s-6)]">
+                  <ClientTag classification={project.classification} />
+                </div>
+              ) : null}
             </Reveal>
 
             <Reveal kind="fade" delay={140} className="lg:col-span-5 lg:self-end">
@@ -219,9 +225,10 @@ export default async function ProjetoPage({ params }: Params) {
                   href={project.liveUrl}
                   target="_blank"
                   rel="noopener noreferrer"
+                  aria-label={liveCtaAria(project)}
                   className="btn btn-solid mt-[var(--s-12)]"
                 >
-                  Visitar o site
+                  {liveCtaLabel(project)}
                   <ArrowUpRight size={16} strokeWidth={1.75} aria-hidden />
                 </a>
               ) : null}

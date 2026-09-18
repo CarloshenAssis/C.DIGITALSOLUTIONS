@@ -21,6 +21,16 @@ export type ProjectImage = {
   caption?: string;
 };
 
+/**
+ * Natureza do projeto.
+ *
+ * "client" é reservado a trabalho comercial efetivamente contratado e
+ * entregue. A AUSÊNCIA do campo não afirma nada: não significa que o
+ * projeto seja conceitual, nem que tenha sido contratado. Nenhum texto do
+ * site deve inferir relação comercial a partir da ausência deste campo.
+ */
+export type Classification = "client";
+
 export type Project = {
   slug: string;
   index: string;
@@ -40,7 +50,9 @@ export type Project = {
   /** Imagem principal. Ausente → placeholder desenhado. */
   image?: string;
   gallery: ProjectImage[];
+  /** URL pública do site. Ausente → nenhum link é renderizado. */
   liveUrl?: string;
+  classification?: Classification;
   featured: boolean;
 };
 
@@ -74,6 +86,8 @@ export const projects: Project[] = [
     ],
     technologies: ["HTML", "CSS", "JavaScript", "Vercel"],
     gallery: [],
+    liveUrl: "https://nobregaecorrea.com.br/",
+    classification: "client",
     featured: true,
   },
   {
@@ -104,6 +118,7 @@ export const projects: Project[] = [
     ],
     technologies: ["HTML", "CSS", "JavaScript", "Vercel"],
     gallery: [],
+    liveUrl: "https://contmav.vercel.app/",
     featured: true,
   },
   {
@@ -134,6 +149,7 @@ export const projects: Project[] = [
     ],
     technologies: ["HTML", "CSS", "JavaScript", "Vercel"],
     gallery: [],
+    liveUrl: "https://gabriellaferreira.vercel.app/",
     featured: true,
   },
   {
@@ -163,6 +179,7 @@ export const projects: Project[] = [
     ],
     technologies: ["HTML", "CSS", "JavaScript", "Vercel"],
     gallery: [],
+    liveUrl: "https://ana-carolina-ribeiro-eta.vercel.app/",
     featured: false,
   },
   {
@@ -192,9 +209,22 @@ export const projects: Project[] = [
     ],
     technologies: ["HTML", "CSS", "JavaScript", "Vercel"],
     gallery: [],
+    // Sem URL pública informada. Enquanto ficar assim, nenhum CTA externo é
+    // renderizado para este projeto — em nenhum lugar do site.
     featured: false,
   },
 ];
+
+/**
+ * Rótulo do CTA externo. Fica aqui, e não nos componentes, para que o texto
+ * acompanhe a classificação do projeto em todos os lugares de uma vez.
+ */
+export const liveCtaLabel = (project: Project) =>
+  project.classification === "client" ? "Visit website" : "View project";
+
+/** Descrição completa para leitores de tela: destino e comportamento. */
+export const liveCtaAria = (project: Project) =>
+  `${liveCtaLabel(project)} — ${project.title} (abre em nova aba)`;
 
 export const featuredProjects = projects.filter((p) => p.featured);
 export const getProject = (slug: string) => projects.find((p) => p.slug === slug);

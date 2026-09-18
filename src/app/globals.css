@@ -499,6 +499,15 @@
     transform: translateX(4px);
   }
 
+  /* Área de toque confortável no mobile (WCAG 2.5.8) sem deslocar o
+     sublinhado: o padding cresce, e o traço volta para junto do texto. */
+  .link-tap {
+    padding-block: 6px;
+  }
+  .link-tap.link-underline::after {
+    bottom: 3px;
+  }
+
   /* --------------------------------------------------------------------------
      MOLDURAS DE TRABALHO
      -------------------------------------------------------------------------- */

@@ -1,8 +1,9 @@
 import Link from "next/link";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, ArrowUpRight } from "lucide-react";
 import Reveal from "@/components/motion/Reveal";
 import ProjectFrame from "@/components/work/ProjectFrame";
-import type { Project } from "@/data/projects";
+import ClientTag from "@/components/work/ClientTag";
+import { liveCtaAria, liveCtaLabel, type Project } from "@/data/projects";
 
 type Props = {
   project: Project;
@@ -75,13 +76,14 @@ export default function ProjectEntry({
         }
       >
         <div className={lead ? "lg:col-span-6" : ""}>
-          <div className="flex items-baseline gap-[var(--s-3)]">
+          <div className="flex flex-wrap items-baseline gap-x-[var(--s-3)] gap-y-[var(--s-2)]">
             <span className="t-num text-[0.75rem]" style={{ color: "var(--fg-faint)" }}>
               {project.index}
             </span>
             <span className="t-label" style={{ color: "var(--fg-muted)" }}>
               {project.kicker}
             </span>
+            <ClientTag classification={project.classification} divider />
           </div>
 
           <Heading
@@ -103,13 +105,29 @@ export default function ProjectEntry({
             ))}
           </ul>
 
-          <Link
-            href={`/projetos/${project.slug}`}
-            className="link-underline mt-[var(--s-6)] inline-flex text-[0.9375rem] font-medium"
-          >
-            Ver projeto
-            <ArrowRight size={16} strokeWidth={1.75} aria-hidden />
-          </Link>
+          <div className="mt-[var(--s-6)] flex flex-wrap items-center gap-x-[var(--s-8)] gap-y-[var(--s-2)]">
+            <Link
+              href={`/projetos/${project.slug}`}
+              className="link-underline link-tap inline-flex text-[0.9375rem] font-medium"
+            >
+              Ver o case
+              <ArrowRight size={16} strokeWidth={1.75} aria-hidden />
+            </Link>
+
+            {project.liveUrl ? (
+              <a
+                href={project.liveUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={liveCtaAria(project)}
+                className="link-underline link-tap inline-flex text-[0.9375rem] font-medium"
+                style={{ color: "var(--fg-muted)" }}
+              >
+                {liveCtaLabel(project)}
+                <ArrowUpRight size={16} strokeWidth={1.75} aria-hidden />
+              </a>
+            ) : null}
+          </div>
         </div>
       </Reveal>
     </article>
