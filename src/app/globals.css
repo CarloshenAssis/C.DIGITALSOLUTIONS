@@ -527,6 +527,13 @@
     transition: transform 800ms var(--ease);
   }
 
+  /* Captura de site: o recorte ancora no canto superior esquerdo, que é onde
+     ficam a marca e o início do título. Centralizar cortaria a manchete ao
+     meio nas molduras verticais. */
+  .frame-img-top {
+    object-position: top left;
+  }
+
   .frame-hover:hover .frame-img {
     transform: scale(1.025);
   }

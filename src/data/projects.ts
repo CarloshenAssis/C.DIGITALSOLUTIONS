@@ -47,7 +47,10 @@ export type Project = {
   solution: string;
   delivered: string[];
   technologies: string[];
-  /** Imagem principal. Ausente → placeholder desenhado. */
+  /**
+   * Captura do site publicado, em /public/work/<slug>/hero.jpg.
+   * Ausente → a moldura cai na capa tipográfica desenhada.
+   */
   image?: string;
   gallery: ProjectImage[];
   /** URL pública do site. Ausente → nenhum link é renderizado. */
@@ -85,6 +88,7 @@ export const projects: Project[] = [
       "Deploy",
     ],
     technologies: ["HTML", "CSS", "JavaScript", "Vercel"],
+    image: "/work/nobrega-correa/hero.jpg",
     gallery: [],
     liveUrl: "https://nobregaecorrea.com.br/",
     classification: "client",
@@ -117,6 +121,7 @@ export const projects: Project[] = [
       "Deploy",
     ],
     technologies: ["HTML", "CSS", "JavaScript", "Vercel"],
+    image: "/work/contmav/hero.jpg",
     gallery: [],
     liveUrl: "https://contmav.vercel.app/",
     featured: true,
@@ -148,6 +153,7 @@ export const projects: Project[] = [
       "Deploy",
     ],
     technologies: ["HTML", "CSS", "JavaScript", "Vercel"],
+    image: "/work/gabriella-ferreira/hero.jpg",
     gallery: [],
     liveUrl: "https://gabriellaferreira.vercel.app/",
     featured: true,
@@ -178,6 +184,7 @@ export const projects: Project[] = [
       "Deploy",
     ],
     technologies: ["HTML", "CSS", "JavaScript", "Vercel"],
+    image: "/work/ana-carolina-ribeiro/hero.jpg",
     gallery: [],
     liveUrl: "https://ana-carolina-ribeiro-eta.vercel.app/",
     featured: false,
@@ -208,6 +215,7 @@ export const projects: Project[] = [
       "Deploy",
     ],
     technologies: ["HTML", "CSS", "JavaScript", "Vercel"],
+    image: "/work/monteiro-graciano/hero.jpg",
     gallery: [],
     liveUrl: "https://monteiro-graciano.vercel.app/",
     featured: false,

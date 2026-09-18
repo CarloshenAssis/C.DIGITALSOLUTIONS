@@ -50,7 +50,7 @@ export default function ProjectFrame({
           fill
           sizes={sizes}
           priority={priority}
-          className="frame-img"
+          className="frame-img frame-img-top"
         />
       ) : (
         <ProjectPlate
