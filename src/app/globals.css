@@ -13,20 +13,27 @@
    3. APERTURE   arcos concêntricos incompletos. Presentes apenas no loader,
                  no processo, no 404 e no fluxo problema → solução.
 
-   Superfícies: claro (padrão), .surface-dark, .surface-black.
-   Cada superfície redefine as variáveis locais --canvas/--fg/--rule/--brand,
-   de modo que nenhum componente precisa saber em qual fundo está.
+   COR
+   ---------------------------------------------------------------------------
+   Quatro valores: PAPER, INK, COBALT, WHITE. Nada além disso.
+
+   O cobalt não é uma cor de superfície — é a assinatura da C. Ele aparece
+   sempre nos mesmos lugares estruturais (a régua da spine, o terminal, o
+   sublinhado dos links, o estado ativo), de modo que o visitante reconheça
+   o padrão sem precisar percebê-lo conscientemente. Uma única superfície
+   grande é cobalt na página inteira: o CTA final.
+
+   Superfícies: .surface-paper (branco), .surface-ink, .surface-brand.
+   Cada uma redefine --canvas/--fg/--rule/--brand localmente, então nenhum
+   componente precisa saber em qual fundo está.
    =========================================================================== */
 
 @theme {
-  --color-canvas: #f6f6f3;
+  --color-canvas: #f4f2ed;
   --color-paper: #ffffff;
-  --color-ink: #111318;
-  --color-ink-deep: #08090b;
-  --color-muted: #6c7078;
-  --color-line: #dcddd8;
-  --color-brand: #2563eb;
-  --color-brand-soft: #e7eeff;
+  --color-ink: #161616;
+  --color-brand: #2457d6;
+  --color-line: #dbd8d1;
 
   --font-display: var(--font-inter-tight), ui-sans-serif, system-ui, sans-serif;
   --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
@@ -39,19 +46,19 @@
 }
 
 :root {
-  /* — superfície clara (padrão) — */
-  --canvas: #f6f6f3;
+  /* — PAPER: a superfície padrão da página inteira — */
+  --canvas: #f4f2ed;
   --raised: #ffffff;
-  --fg: #111318;
-  --fg-soft: #3a3d45; /* 10.0:1 */
-  --fg-muted: #54585e; /* 6.6:1  — texto secundário */
-  --fg-faint: #6c7078; /* 4.6:1  — rótulos e numerais de seção */
-  --fg-ghost: #b9bcb8; /* decorativo: nunca carrega informação */
-  --rule: rgb(17 19 24 / 0.1);
-  --rule-strong: rgb(17 19 24 / 0.2);
-  --brand: #2563eb;
-  --brand-wash: #e7eeff;
-  --shade: rgb(17 19 24 / 0.04);
+  --fg: #161616; /* INK — 16.2:1 */
+  --fg-soft: #3f3e3d; /*  9.5:1 */
+  --fg-muted: #5c5c5a; /*  6.0:1 — texto secundário */
+  --fg-faint: #6d6c6a; /*  4.7:1 — rótulos e numerais de seção */
+  --fg-ghost: #b4b2af; /* decorativo: nunca carrega informação */
+  --rule: rgb(22 22 22 / 0.1);
+  --rule-strong: rgb(22 22 22 / 0.2);
+  --brand: #2457d6; /* COBALT — 5.5:1 */
+  --brand-wash: #e7edfb;
+  --shade: rgb(22 22 22 / 0.04);
 
   /* — escala de espaço, base 4 — */
   --s-1: 4px;
@@ -109,36 +116,56 @@
    SUPERFÍCIES
    -------------------------------------------------------------------------- */
 
-.surface-dark {
-  --canvas: #111318;
-  --raised: #171a20;
-  --fg: #f4f4f1;
-  --fg-soft: #cbcdd1;
-  --fg-muted: #969aa0; /* 6.6:1 */
-  --fg-faint: #7c8086; /* 4.7:1 */
-  --fg-ghost: #4a4e56;
-  --rule: rgb(246 246 243 / 0.12);
-  --rule-strong: rgb(246 246 243 / 0.24);
-  --brand: #5b8dff;
-  --brand-wash: rgb(91 141 255 / 0.14);
-  --shade: rgb(246 246 243 / 0.05);
+/* WHITE. Um passo acima do papel — folha limpa, sem cor nova. */
+.surface-paper {
+  --canvas: #ffffff;
+  --raised: #f4f2ed;
+  --fg-soft: #464646; /* 9.4:1 */
+  --fg-muted: #636363; /* 6.0:1 */
+  --fg-faint: #747474; /* 4.7:1 */
+  --fg-ghost: #bcbcbc;
+  --rule: rgb(22 22 22 / 0.1);
+  --rule-strong: rgb(22 22 22 / 0.2);
+  --brand: #2457d6; /* 6.2:1 */
+  --shade: rgb(22 22 22 / 0.04);
   background-color: var(--canvas);
   color: var(--fg);
 }
 
-.surface-black {
-  --canvas: #08090b;
-  --raised: #101216;
-  --fg: #f4f4f1;
-  --fg-soft: #c8cace;
-  --fg-muted: #91959b; /* 6.6:1 */
-  --fg-faint: #777b81; /* 4.7:1 */
-  --fg-ghost: #41454c;
-  --rule: rgb(246 246 243 / 0.1);
-  --rule-strong: rgb(246 246 243 / 0.22);
-  --brand: #5b8dff;
-  --brand-wash: rgb(91 141 255 / 0.14);
-  --shade: rgb(246 246 243 / 0.04);
+/* INK. O contraponto escuro — neutro, nunca azul-marinho. */
+.surface-ink {
+  --canvas: #161616;
+  --raised: #1f1f1e;
+  --fg: #f4f2ed; /* 16.2:1 */
+  --fg-soft: #bdbcb8; /*  9.5:1 */
+  --fg-muted: #959491; /*  6.0:1 */
+  --fg-faint: #83827f; /*  4.7:1 */
+  --fg-ghost: #454544;
+  --rule: rgb(244 242 237 / 0.12);
+  --rule-strong: rgb(244 242 237 / 0.24);
+  --brand: #678be3; /*  5.5:1 — cobalt elevado para sobreviver ao fundo */
+  --brand-wash: rgb(103 139 227 / 0.16);
+  --shade: rgb(244 242 237 / 0.05);
+  background-color: var(--canvas);
+  color: var(--fg);
+}
+
+/* COBALT. A única grande superfície de marca da página: o CTA final.
+   Aqui a cor de decisão se inverte para INK — é ela que marca o terminal,
+   o hover do botão e o anel de foco sobre o azul. */
+.surface-brand {
+  --canvas: #2457d6;
+  --raised: #1b47b6;
+  --fg: #ffffff; /* 6.2:1 */
+  --fg-soft: #f4f2ed; /* 5.5:1 */
+  --fg-muted: #e3e8f6; /* 5.1:1 */
+  --fg-faint: #d3dcf2; /* 4.6:1 */
+  --fg-ghost: #6f92e4;
+  --rule: rgb(255 255 255 / 0.22);
+  --rule-strong: rgb(255 255 255 / 0.38);
+  --brand: #161616;
+  --brand-wash: rgb(22 22 22 / 0.14);
+  --shade: rgb(255 255 255 / 0.08);
   background-color: var(--canvas);
   color: var(--fg);
 }
@@ -264,6 +291,17 @@
     display: flex;
     align-items: flex-start;
     gap: var(--s-3);
+  }
+
+  /* O traço cobalt da spine.
+     É o portador principal da cor da marca: aparece uma vez por seção,
+     sempre na mesma posição, descendo a página inteira. Ocupa quase nenhum
+     pixel e é o que faz o azul virar padrão reconhecível em vez de enfeite. */
+  .spine-mark {
+    width: 1px;
+    height: 56px;
+    background: var(--brand);
+    transform-origin: top;
   }
 
   @media (min-width: 1024px) {
@@ -476,6 +514,8 @@
     align-items: center;
     gap: 6px;
   }
+  /* O sublinhado se constrói em cobalt: cada link do site repete a mesma
+     marca de marca, sem precisar tingir o texto. */
   .link-underline::after {
     content: "";
     position: absolute;
@@ -483,7 +523,7 @@
     bottom: -3px;
     height: 1px;
     width: 100%;
-    background: currentColor;
+    background: var(--brand);
     transform: scaleX(0);
     transform-origin: left;
     transition: transform var(--dur) var(--ease);
@@ -882,5 +922,23 @@
   html[data-intro="2"] .intro {
     opacity: 0;
     pointer-events: none;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   ESTADOS ATIVOS EM COBALT
+   Índice de etapa aberta no processo. É o único "índice ativo" da página —
+   os demais numerais permanecem em tinta apagada, para que o azul continue
+   raro.
+   -------------------------------------------------------------------------- */
+
+@layer components {
+  details[open] > summary .t-num {
+    color: var(--brand);
+  }
+
+  /* Contorno do botão fantasma ganha a cor da marca ao ser apontado. */
+  .btn-outline:hover {
+    border-color: var(--brand);
   }
 }

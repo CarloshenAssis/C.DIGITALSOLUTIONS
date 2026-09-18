@@ -183,7 +183,7 @@ export default async function ProjetoPage({ params }: Params) {
       ) : null}
 
       {/* — entrega — */}
-      <Section index="03" label="Entrega" tone="dark" wide>
+      <Section index="03" label="Entrega" tone="ink" wide>
         <div className="grid gap-[var(--s-12)] lg:grid-cols-12 lg:gap-[var(--s-8)]">
           <Reveal kind="up" className="lg:col-span-4">
             <h2 className="t-section" style={{ fontSize: "clamp(1.5rem, 2.2vw, 2rem)" }}>

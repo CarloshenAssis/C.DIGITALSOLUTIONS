@@ -10,7 +10,7 @@ export default function FinalCta() {
   // O rodapé também é preto: o fecho da página é um único movimento escuro.
   return (
     <section
-      className="surface-black"
+      className="surface-brand"
       style={{ paddingTop: "var(--section-y-wide)", paddingBottom: "var(--section-y)" }}
       aria-labelledby="cta-final"
     >

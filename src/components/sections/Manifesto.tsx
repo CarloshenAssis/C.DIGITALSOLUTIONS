@@ -4,7 +4,7 @@ import Mark from "@/components/brand/Mark";
 
 export default function Manifesto() {
   return (
-    <Section tone="dark" wide index="02" label="Manifesto">
+    <Section tone="paper" wide index="02" label="Manifesto">
       <div className="lg:max-w-[64ch]">
         <Reveal kind="up">
           <h2 className="t-title">
@@ -24,7 +24,7 @@ export default function Manifesto() {
 
         <Reveal kind="fade" delay={220}>
           <div className="mt-[var(--s-16)] flex items-center gap-[var(--s-4)]">
-            <Mark size={26} tone="light" />
+            <Mark size={26} tone="color" />
             <span aria-hidden className="h-px w-[44px]" style={{ background: "var(--rule-strong)" }} />
             <p className="t-label" style={{ color: "var(--fg-muted)" }}>
               Tecnologia é o meio. A solução é o objetivo.

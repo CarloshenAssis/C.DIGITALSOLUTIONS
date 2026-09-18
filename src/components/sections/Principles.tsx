@@ -9,7 +9,7 @@ import { principles } from "@/data/principles";
  */
 export default function Principles() {
   return (
-    <Section index="08" label="Método" tone="dark" wide>
+    <Section index="08" label="Método" tone="ink" wide>
       <Reveal kind="up">
         <h2 className="t-section measure-narrow">
           O detalhe está <span className="t-dim">no processo.</span>

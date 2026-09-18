@@ -92,7 +92,7 @@ export default function SobrePage() {
       </Section>
 
       {/* — onde a tecnologia entra — */}
-      <Section index="01" label="Ordem" tone="dark" wide>
+      <Section index="01" label="Ordem" tone="ink" wide>
         <div className="grid gap-[var(--s-12)] lg:grid-cols-12 lg:gap-[var(--s-8)]">
           <Reveal kind="up" className="lg:col-span-5">
             <h2 className="t-section">

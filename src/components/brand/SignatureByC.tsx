@@ -35,7 +35,7 @@ export default function SignatureByC({
       className="group inline-flex items-center gap-[6px] transition-opacity duration-300 hover:opacity-100"
       style={{
         opacity: 0.55,
-        color: tone === "dark" ? "#F4F4F1" : "#111318",
+        color: tone === "dark" ? "#F4F2ED" : "#161616",
         fontSize: "0.75rem",
         letterSpacing: "-0.005em",
       }}
@@ -47,7 +47,7 @@ export default function SignatureByC({
       <span
         aria-hidden
         className="h-[5px] w-[5px] rounded-[1px] transition-transform duration-300 group-hover:scale-125"
-        style={{ background: "#2F6FED" }}
+        style={{ background: "#2457D6" }}
       />
     </Link>
   );

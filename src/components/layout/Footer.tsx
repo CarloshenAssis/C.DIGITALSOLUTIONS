@@ -28,7 +28,7 @@ export default function Footer() {
   const socials = activeSocial();
 
   return (
-    <footer className="surface-black" style={{ paddingTop: "var(--s-16)", paddingBottom: "var(--s-8)" }}>
+    <footer className="surface-ink" style={{ paddingTop: "var(--s-16)", paddingBottom: "var(--s-8)" }}>
       <div className="shell">
         {/* CTA final dentro do rodapé: o último convite, não um banner novo. */}
         <div className="grid gap-[var(--s-12)] lg:grid-cols-12 lg:gap-[var(--s-8)]">

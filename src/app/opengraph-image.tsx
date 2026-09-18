@@ -19,8 +19,8 @@ export default async function OpenGraphImage() {
           display: "flex",
           flexDirection: "column",
           justifyContent: "space-between",
-          background: "#F6F6F3",
-          color: "#111318",
+          background: "#F4F2ED",
+          color: "#161616",
           padding: 72,
           fontFamily: "sans-serif",
         }}
@@ -40,7 +40,7 @@ export default async function OpenGraphImage() {
           </svg>
           <div style={{ display: "flex", flexDirection: "column" }}>
             <span style={{ fontSize: 26, fontWeight: 700, letterSpacing: -1 }}>C.</span>
-            <span style={{ fontSize: 13, letterSpacing: 4, color: "#6C7078" }}>
+            <span style={{ fontSize: 13, letterSpacing: 4, color: "#5C5C5A" }}>
               DIGITAL SOLUTIONS
             </span>
           </div>
@@ -56,7 +56,7 @@ export default async function OpenGraphImage() {
               fontWeight: 700,
               lineHeight: 1.05,
               letterSpacing: -3,
-              color: "#6C7078",
+              color: "#5C5C5A",
             }}
           >
             problemas de negócio.
@@ -64,8 +64,8 @@ export default async function OpenGraphImage() {
         </div>
 
         <div style={{ display: "flex", alignItems: "center", gap: 14 }}>
-          <div style={{ width: 10, height: 10, background: "#2563EB", borderRadius: 2 }} />
-          <span style={{ fontSize: 17, letterSpacing: 3, color: "#6C7078" }}>
+          <div style={{ width: 10, height: 10, background: "#2457D6", borderRadius: 2 }} />
+          <span style={{ fontSize: 17, letterSpacing: 3, color: "#5C5C5A" }}>
             PROBLEM FIRST. SOLUTION SECOND.
           </span>
         </div>

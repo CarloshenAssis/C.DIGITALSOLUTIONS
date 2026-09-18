@@ -7,13 +7,13 @@ type Props = {
   title: ReactNode;
   lead?: ReactNode;
   aside?: ReactNode;
-  tone?: "light" | "dark";
+  tone?: "light" | "ink";
 };
 
 export default function PageHero({ eyebrow, title, lead, aside, tone = "light" }: Props) {
   return (
     <section
-      className={tone === "dark" ? "surface-dark" : ""}
+      className={tone === "ink" ? "surface-ink" : ""}
       style={{ paddingTop: "clamp(128px, 16vh, 184px)", paddingBottom: "var(--s-16)" }}
     >
       <div className="shell">

@@ -1,6 +1,6 @@
 import type { ReactNode } from "react";
 
-type Tone = "light" | "dark" | "black" | "paper";
+type Tone = "light" | "paper" | "ink" | "brand";
 
 type Props = {
   children: ReactNode;
@@ -19,9 +19,9 @@ type Props = {
 
 const toneClass: Record<Tone, string> = {
   light: "",
-  paper: "",
-  dark: "surface-dark",
-  black: "surface-black",
+  paper: "surface-paper",
+  ink: "surface-ink",
+  brand: "surface-brand",
 };
 
 /**
@@ -48,10 +48,7 @@ export default function Section({
     <section
       id={id}
       className={`relative ${toneClass[tone]} ${className}`}
-      style={{
-        paddingBlock: pad,
-        backgroundColor: tone === "paper" ? "var(--raised)" : undefined,
-      }}
+      style={{ paddingBlock: pad }}
     >
       <div className="shell">
         {bare ? (
@@ -72,11 +69,7 @@ export default function Section({
                   {label}
                 </span>
               ) : null}
-              <span
-                aria-hidden
-                className="draw-y hidden lg:block w-px"
-                style={{ height: "56px", background: "var(--rule-strong)" }}
-              />
+              <span aria-hidden className="draw-y spine-mark hidden lg:block" />
             </div>
             <div className="min-w-0">{children}</div>
           </div>

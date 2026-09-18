@@ -12,7 +12,7 @@ import { problems } from "@/data/problems";
  */
 export default function Problems() {
   return (
-    <Section id="problemas" index="06" label="Diagnóstico" tone="dark" wide>
+    <Section id="problemas" index="06" label="Diagnóstico" tone="light" wide>
       <div className="grid gap-[var(--s-12)] lg:grid-cols-12 lg:gap-[var(--s-8)]">
         <div className="lg:col-span-4">
           <Reveal kind="up">

@@ -84,7 +84,7 @@ export default function ExperienciaPage() {
         </ol>
       </Section>
 
-      <Section index="02" label="Formação" tone="dark" wide>
+      <Section index="02" label="Formação" tone="ink" wide>
         <Reveal kind="up">
           <h2 className="t-section measure-narrow">
             Formação <span className="t-dim">em duas frentes.</span>
