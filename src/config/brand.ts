@@ -1,3 +1,5 @@
+import { siteUrl } from "./site-url";
+
 /**
  * Identidade da marca. Ponto único de verdade.
  * Nada aqui deve ser duplicado dentro de componentes.
@@ -12,8 +14,8 @@ export const brand = {
   signature: "Problem first. Solution second.",
   descriptor: "Digital solutions for real problems.",
   locale: "pt-BR",
-  /** Preencher com o domínio final antes do deploy. */
-  url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://cdigitalsolutions.com.br",
+  /** Resolvido em src/config/site-url.ts. Sempre uma URL absoluta válida. */
+  url: siteUrl,
 } as const;
 
 export const year = new Date().getFullYear();

@@ -93,6 +93,20 @@ NEXT_PUBLIC_SITE_URL="https://seudominio.com.br"
 
 Usado em metadata, canonical, `sitemap.xml`, `robots.txt` e JSON-LD.
 
+**Opcional.** Sem essa variável, `src/config/site-url.ts` resolve o domínio
+nesta ordem:
+
+1. `NEXT_PUBLIC_SITE_URL`;
+2. o domínio de produção do projeto na Vercel (`VERCEL_PROJECT_PRODUCTION_URL`);
+3. a URL do deploy atual (`VERCEL_URL`, útil em previews);
+4. o fallback em `site-url.ts`.
+
+Valores em branco, sem protocolo, com barra final ou inválidos são
+normalizados ou descartados — a resolução nunca lança. Isso importa porque
+`new URL("")` em `metadataBase` derruba o build inteiro na coleta de
+metadata, e uma variável **declarada e vazia** na Vercel é o jeito mais fácil
+de cair nesse caso (`??` não a trata como ausente).
+
 ### 4. Recebimento do formulário — opcional
 
 ```
